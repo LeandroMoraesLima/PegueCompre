@@ -1,0 +1,143 @@
+<header class="header">
+    <div class="container-fluid topbanner">
+        <img src="{{ themePath }}img/dolayout/topbar_anuncio.png" alt="#" />
+    </div>
+    <div class="container">
+        <div class="bar-top flex align-center justify-between">
+            <div class="logo flex align-center">
+                {% if pages.current == 'home' %}
+                    <h1>
+                        <a href="{{ links.home }}" class="site-logo" title="{{ store.name }}">
+                            <strong>{{ store.name }}</strong>
+                            {{ Image('logo') }}
+                         </a>
+                    </h1>
+                {% else %}
+                    <a href="{{ links.home }}" title="{{ store.name }}" class="site-logo">{{ Image('logo') }}</a>
+                {% endif %}
+            </div>
+            <div class="menu-bar">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="content-right">
+
+                <div class="bar-links flex">
+                    
+                    <div class="itens-top flex uppercase">
+                        <div class="item box-tracking" tabindex="0">
+                            <span class="text t-color hover">Rastrear pedido</span>
+                            <div class="down-sub white tracking">
+                                <div class="title uppercase">Digite o código de rastreio e acompanhe o seu pedido:</div>
+                                <div class="form">
+                                    <form class="tracking-form">
+                                        <input required minlength="13" type="tel" name="code" spellcheck="false" autocomplete="off" placeholder="Código de rastreio">
+                                        <button class="button-primary">rastrear pedido <i aria-hidden class="icon icon-right"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        {% if Translation('ag_telefone_2') != '' %}
+                        <div class="item whatsapp">
+                            <span class="text t-color">whatsapp: <a class="hover" href="" target="_blank">{{ Translation('ag_telefone_2') }}</a></span>
+                        </div>
+                        {% endif %}
+                        <div class="item">
+                            <a href="{{ links.contact }}" class="text t-color hover">Ajuda e suporte</a>
+                        </div>
+                    </div>
+
+                    <div class="account">
+                        <!-- <a class="login" href="{{ links.login }}">
+                            <div class="box-text t-color">
+                                <div class="title-text uppercase">
+                                    Seja bem vindo, 
+                                    <b>acessar minha conta <svg width="10" height="10" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M941 1299l454-454q19-19 19-45t-19-45l-102-102q-19-19-45-19t-45 19l-307 307-307-307q-19-19-45-19t-45 19l-102 102q-19 19-19 45t19 45l454 454q19 19 45 19t45-19zm723-403q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/></svg>
+                                    </b>
+                                </div> 
+                            </div>
+                        </a>
+                        <span class="tray-hide" data-logged-user="false">
+                            <div class="down-sub">
+                                <a href="{{ links.login }}" class="button-primary white">Entrar <span class="icon icon-right"></span></a>
+                                <div class="line uppercase">ou</div>
+                                <a class="link white" href="{{ links.register }}">Cliente novo? Cadastrar</a>
+                            </div>
+                        </span>
+                        <span class="tray-hide" data-logged-user="true">
+                            <div class="down-sub">
+                                <a href="{{ links.logout }}" class="button-primary white">Sair <span class="icon icon-right"></span></a>
+                                <div class="line uppercase">ou</div>
+                                <a class="link white" href="{{ links.central }}">Minha Conta</a>
+                            </div>
+                        </span>  -->   
+                    </div>
+
+                </div>
+
+                <div class="action-shop flex justify-between">
+                    <div class="search">
+                        {% element 'snippets/search' %}
+                    </div>
+                    <div class="box-right flex justify-between align-center">
+                        <div class="info-site">
+                            {% if Translation('ag_telefone_1') != '' %}
+                            <div class="item telefone">
+                                <span class="text t-color">{{ Translation('ag_telefone_1') }}</span>
+                            </div>
+                            {% endif %}
+                            {% if Translation('ag_atendimento') != '' %}
+                            <div class="item atendimento">
+                                <span class="text t-color">{{ Translation('ag_atendimento') }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="cart">
+                            <div class="account">
+                                <a class="login" href="{{ links.login }}">
+                                    <div class="box-text t-color">
+                                        <div class="title-text uppercase">
+                                            <i class="far fa-user"></i>
+                                        </div> 
+                                    </div>
+                                </a>
+                                <span class="tray-hide" data-logged-user="false">
+                                    <div class="down-sub">
+                                        <a href="{{ links.login }}" class="button-primary white">Entrar <span class="icon icon-right"></span></a>
+                                        <div class="line uppercase">ou</div>
+                                        <a class="link white" href="{{ links.register }}">Cliente novo? Cadastrar</a>
+                                    </div>
+                                </span>
+                                <span class="tray-hide" data-logged-user="true">
+                                    <div class="down-sub">
+                                        <a href="{{ links.logout }}" class="button-primary white">Sair <span class="icon icon-right"></span></a>
+                                        <div class="line uppercase">ou</div>
+                                        <a class="link white" href="{{ links.central }}">Minha Conta</a>
+                                    </div>
+                                </span> 
+                            </div>
+
+
+                            <a class="flex align-end" href="{{ links.cart }}">
+                                <div class="icon-bag featured t-color">
+                                    <svg viewBox="0 0 294.038 294.038" height="28" width="28">
+                                        <path d="m289.513,86.441c-3.481-5.22-12.181-10.441-19.142-10.441l-224.475-15.661-8.701-27.842c0-1.74-1.74-5.22-5.22-5.22l-20.882-6.96c-3.48-1.74-8.701,0-10.441,5.22-1.74,3.48 0,8.701 5.22,10.441l17.401,5.22 8.701,29.582 34.802,120.068c2.488,9.083 7.761,16.548 14.617,21.943-7.796,6.404-12.894,15.974-12.894,26.78 0,19.141 15.661,34.802 34.802,34.802s34.802-15.661 34.802-34.802c0-6.351-1.844-12.251-4.855-17.401h67.151c-3.01,5.151-4.855,11.05-4.855,17.401 0,19.141 15.661,34.802 34.802,34.802 19.159,0 34.802-15.661 34.802-34.802 0-9.379-3.793-17.889-9.884-24.17 8.526-5.429 14.913-13.851 16.862-24.553l20.882-81.786c1.725-8.7 1.725-15.661-3.495-22.621zm-186.21,170.532c-10.441,0-17.401-6.96-17.401-17.401s6.96-17.401 17.401-17.401c8.701,0 17.401,6.96 17.401,17.401s-6.961,17.401-17.401,17.401zm127.028,0c-10.441,0-17.401-6.96-17.401-17.401s6.96-17.401 17.401-17.401c10.458,0 17.401,6.96 17.401,17.401s-6.96,17.401-17.401,17.401zm26.102-69.605c-1.462,8.805-9.223,16.026-18.88,18.184-2.332-0.505-4.733-0.783-7.222-0.783-3.602,0-7.013,0.713-10.284,1.74h-106.461c-3.271-1.027-6.682-1.74-10.284-1.74-0.818,0-1.584,0.191-2.384,0.244-7.552-2.906-14.147-9.762-16.775-17.645l-31.321-107.888 215.775,15.661c3.48,0 5.22,1.74 6.96,3.48 1.74,1.74 1.74,5.22 1.74,6.96l-20.864,81.787z"/>
+                                    </svg>
+                                </div>
+                                <div class="box-text t-color">
+                                    <div class="title-text">Carrinho</div>
+                                    <div class="text">
+                                        <span data-cart="amount" class="number-cart">{{ cart.amount }}</span> itens <span class="icon icon-down-mini"></span> 
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% element 'snippets/nav' %}
+    {% element 'snippets/nav-mobile' %}
+</header>

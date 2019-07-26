@@ -1,0 +1,153 @@
+{% set checkout = "checkout_cart" in pages.current ? "true" : "" %}
+<footer class="footer">
+
+    {% if checkout %}
+            
+    {% else %}
+        <div class="news-footer instagram">
+                    
+            <div class="container newsletter">
+                <div class="box-text">
+                    <div class="first uppercase">CADASTRE-SE E RECEBA OFERTAS COM PREÇOS EXCLUSIVOS</div>
+                    <div class="last">seja sempre o primeiro a receber nossas novidades, cadastre-se, é grátis!</div>
+                </div>            
+                <form class="box-form" action="/mvc/store/newsletter/" method="POST">
+                    <input type="hidden" name="loja" value="{{ store.id }}">
+                    <input spellcheck="false" required autocomplete="off" name="email" required="" class="text-mail" type="email" placeholder="Digite seu e-mail">
+                    <button class="news-button t-background">OK<i aria-hidden class="icon icon-right"></i></button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if settings.name_instagram and settings.token_instagram %}
+    <div id="instagram" data-name="{{ settings.name_instagram }}" data-token="{{ settings.token_instagram }}">
+        <div class="instagram-box container">
+            <ul class="list flex justify-center">
+                <li class="flex-grow">
+                    <a href="" target="_blank" class="box-image">
+                        <div class="about-instagram flex justify-center align-center">
+                            <div>
+                                <div class="icon icon-instagram"></div>
+                                <div class="text">Siga o mundo</div>
+                                <div class="text link-href"></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>    
+    {% endif %}
+
+    <div class="foo-content">
+        <div class="container">
+            <div class="line flex justify-between wrap">
+               
+                <div class="box">
+                    <h3 class="title uppercase">Institucional</h3>
+                    <div class="overflow">
+                        <ul class="list">
+                            {% for custom in pages.custom %}
+                            <li>
+                                <a class="t-color" href="{{ custom.url }}">{{ custom.name }}</a>
+                            </li>
+                            {% endfor %}
+                            <li>
+                                <a  class="t-color" href="{{ links.contact }}" data-tray-tst="fale_conosco">Fale Conosco</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="title uppercase">Central de atendimento</h3>
+                    <div class="overflow">
+                        <div class="box-tel">
+                            {% if Translation('ag_telefone_1') != '' %}    
+                            <div class="media">
+                                <div class="icon-phone"><i class="fab fa-whatsapp"></i></div>
+                                <div class="media-body phone">
+                                    <div class="fale-conosco">Fale Conosco</div>
+                                    {{ Translation('ag_telefone_1') }}
+                                </div>
+                            </div>  
+                            {% endif %}
+                            {% if Translation('ag_telefone_2') != '' %}
+                            <div class="media">
+                                <div class="icon-phone"><i class="fab fa-whatsapp"></i></div>
+                                <div class="media-body phone">
+                                    <div class="fale-conosco">Fale Conosco</div>
+                                    {{ Translation('ag_telefone_2') }}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if Translation('ag_email_1') != '' %}
+                            <div class="media">
+                                <div class="icon-envelope"><i class="far fa-envelope"></i></div>
+                                <div class="media-body text">{{ Translation('ag_email_1') }}</div>
+                            </div>
+                            {% endif %}
+                            {% if Translation('ag_email_2') != '' %}
+                            <div class="media">
+                                <div class="icon-envelope"><i class="far fa-envelope"></i></div>
+                                <div class="media-body text">{{ Translation('ag_email_2') }}</div>
+                            </div>
+                            {% endif %}
+                             {% if Translation('ag_atendimento') != '' %}
+                             <div class="media">
+                                <div class="icon-clock"><i class="far fa-clock"></i></div>
+                                <div class="media-body text atendimento">{{ Translation('ag_atendimento') }}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <!-- {% element 'snippets/social-list' %} -->
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-payment">
+                        <h3 class="title uppercase">Pagamento</h3>
+                        <div class="overflow">
+                        {% element 'snippets/payment-list' %}
+                        </div>
+                    </div>
+                    <div class="box-seal">
+                        <h3 class="title uppercase">Compra segura</h3>
+                        <div class="overflow space-low">
+                            <ul class="list-seal">
+                                {% if seals.ebit %}
+                                <li class="seal-ebit">{{ seals.ebit }}</li>
+                                {% endif %}
+                                <li>
+                                    <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank">
+                                        <img src="{{ asset('img/google.png') }}" alt="Google Safe" />
+                                    </a>
+                                </li>
+                                {% if seals.hackersafe %}
+                                <li>{{ seals.hackersafe }}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% if settings.facebook %}
+                <div class="box facebook">
+                    <div class="fb-page" data-href="https://www.facebook.com/{{ settings.facebook }}" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/SouSuporteLOL/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/{{ setting.facebook }}/">{{ store.name }}</a></blockquote></div>
+                    <div id="fb-root"></div>
+                </div>
+                {% endif %}
+                <div class="box social">
+                    {% element 'snippets/social-list' %}
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="copy">
+        <div class="container">
+            <p>{{ Translation('ag_mensagem_rodape') }}</p>
+            <!-- <a class="logo uppercase" href="//www.netzee.com.br" target="_blank" title="Netzee">
+                Desenvolvido por:
+                <img src="{{ asset('img/netzee.svg') }}" alt="Netzee"> -->
+            </a>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,84 @@
+<div itemscope itemtype="http://schema.org/Product" class="product-box flex flex-column justify-between {{ product.has_other_prices ? ' has-other-prices' }} {{ settings.without_stock_sale ? 'shop-stock-empty' }} {{ (product.available and product.stock > 0 or settings.without_stock_sale) ? 'available' : 'not-available'}}" data-stock="{{products.stock}}" data-id="{{ product.id }}">
+
+    {% element 'schema/product' {'product': product} %}
+
+    <div class="box-abs">
+        {% if product.price_offer and settings.discount %}
+            {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+            {% if porcentagemDesconto < 100 %}
+               
+                <span class="box discount flex justify-center align-center">
+                    <span><span>{{ porcentagemDesconto|number_format }}%</span> <span class="off">OFF</span></span>
+                </span>
+               
+            {% endif %}  
+        {% endif %}
+        {% if product.free_shipping %}
+           
+            <span class="box shipping">
+                <span>Frete</span>
+                <span>Grátis</span>
+            </span>
+          
+        {% endif %}
+    </div>
+    <div class="product-image">
+        {% if product.images %}
+        <a class="box-image" href="{{ product.link }}">
+            <img src="{{ asset('img/image.png') }}" data-src="{{ product.images[0].large }}" class="{{ slide ? 'owl-lazy' : 'lazyload t-opacity' }}" alt="{{ product.name }}" title="{{ product.name }}">
+            <div class="load-css">
+                <div class="icon"></div>
+            </div>
+        </a>
+        {% else %}
+        {% endif %}
+    </div>
+    <div class="info-product flex flex-column justify-between flex-grow">
+        <a href="{{ product.link }}" class="product-name">{{ product.name }}</a>
+
+        <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}" class="pricing">
+            <div class="load"><div class="ico"></div></div>
+        </div>
+    </div>
+    
+    {% if pages.current == 'catalog' and settings.compare %}
+    <div class="compare-buttons">
+        {% set compareCSS = 'compare-hidden' %}
+
+        <a data-compare="remove" href="{{ links.compare_delete ~ product.id }}" class="{{ not product.compare ? compareCSS }}">
+            <span class="filter-checkbox checked"></span>
+            {{ Translation("remover_comparar") }}
+        </a>
+        
+        <a data-compare="add" href="{{ links.compare_add  ~ product.id }}" class="{{ product.compare ? compareCSS }}">
+            <span class="filter-checkbox"></span>
+            {{ Translation("comparar_produto") }}
+        </a>
+    </div>
+    {% endif %}
+
+        <div class="action-product flex justify-center">
+           <!--  {% if product.stock > 0 or settings.without_stock_sale %} 
+                <a href="{{ product.link }}" class="action-button view transition">
+                    <span class="icon icon-zoom"></span>
+                    <span class="text uppercase">Espiar</span>
+                </a>
+            {% else %}
+                <a href="{{ product.link }}" class="action-button transition esgotado">
+                    <svg viewBox="0 0 512 512" width="17" heigth="17"><path d="M256,0C114.497,0,0,114.507,0,256c0,141.503,114.507,256,256,256c141.503,0,256-114.507,256-256    C512,114.497,397.493,0,256,0z M256,472c-119.393,0-216-96.615-216-216c0-119.393,96.615-216,216-216    c119.393,0,216,96.615,216,216C472,375.393,375.385,472,256,472z"></path><path d="M256,128.877c-11.046,0-20,8.954-20,20V277.67c0,11.046,8.954,20,20,20s20-8.954,20-20V148.877    C276,137.831,267.046,128.877,256,128.877z"></path><circle cx="256" cy="349.16" r="27"></circle></svg>
+                    <span class="text uppercase">Esgotado</span>
+                </a>
+            {% endif %}
+            {% if settings.buy_to_cart and (product.available and product.stock > 0 or settings.without_stock_sale) %} -->
+            <a href="{{ links.cart_add ~ product.id }}" class="action-button add transition">
+                <span class="icon icon-bag">
+                    <svg viewBox="0 0 294.038 294.038" height="25" width="25">
+                        <path d="m289.513,86.441c-3.481-5.22-12.181-10.441-19.142-10.441l-224.475-15.661-8.701-27.842c0-1.74-1.74-5.22-5.22-5.22l-20.882-6.96c-3.48-1.74-8.701,0-10.441,5.22-1.74,3.48 0,8.701 5.22,10.441l17.401,5.22 8.701,29.582 34.802,120.068c2.488,9.083 7.761,16.548 14.617,21.943-7.796,6.404-12.894,15.974-12.894,26.78 0,19.141 15.661,34.802 34.802,34.802s34.802-15.661 34.802-34.802c0-6.351-1.844-12.251-4.855-17.401h67.151c-3.01,5.151-4.855,11.05-4.855,17.401 0,19.141 15.661,34.802 34.802,34.802 19.159,0 34.802-15.661 34.802-34.802 0-9.379-3.793-17.889-9.884-24.17 8.526-5.429 14.913-13.851 16.862-24.553l20.882-81.786c1.725-8.7 1.725-15.661-3.495-22.621zm-186.21,170.532c-10.441,0-17.401-6.96-17.401-17.401s6.96-17.401 17.401-17.401c8.701,0 17.401,6.96 17.401,17.401s-6.961,17.401-17.401,17.401zm127.028,0c-10.441,0-17.401-6.96-17.401-17.401s6.96-17.401 17.401-17.401c10.458,0 17.401,6.96 17.401,17.401s-6.96,17.401-17.401,17.401zm26.102-69.605c-1.462,8.805-9.223,16.026-18.88,18.184-2.332-0.505-4.733-0.783-7.222-0.783-3.602,0-7.013,0.713-10.284,1.74h-106.461c-3.271-1.027-6.682-1.74-10.284-1.74-0.818,0-1.584,0.191-2.384,0.244-7.552-2.906-14.147-9.762-16.775-17.645l-31.321-107.888 215.775,15.661c3.48,0 5.22,1.74 6.96,3.48 1.74,1.74 1.74,5.22 1.74,6.96l-20.864,81.787z"/>
+                    </svg>
+                </span>
+                <span class="text uppercase">Comprar</span>
+            </a>
+           <!--  {% endif %}   -->
+        </div> 
+    
+</div>

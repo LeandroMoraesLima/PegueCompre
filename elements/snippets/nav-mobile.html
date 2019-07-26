@@ -1,0 +1,59 @@
+<div class="nav-mobile">
+    <div class="header-mobile flex align-center">
+        <div class="box-info-header flex align-center">
+            <svg class="icon prev" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="400.004px" height="400.004px" viewBox="0 0 400.004 400.004" style="enable-background:new 0 0 400.004 400.004;" xml:space="preserve">
+                <path d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757   c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072   c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315   C400.004,190.438,392.251,182.686,382.688,182.686z"></path>
+            </svg>
+            <div class="box-text">
+                <span class="tray-hide" data-logged-user="true">
+                    <a href="{{ links.orders }}" class="primary">
+                        Olá <span  data-customer="name"></span>
+                    </a>
+                    <a class="second uppercase flex align-center" href="{{ links.logout }}" class="second">
+                        Sair <span class="icon-right"></span>
+                    </a>
+                </span>
+                <span class="tray-hide" data-logged-user="false">
+                    <a class="primary">
+                        Olá visitante
+                    </a>
+                    <a class="second uppercase flex align-center" href="{{ links.orders }}" class="second">
+                        Minha conta <span class="icon-right"></span>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <ul class="list-category level-primary">
+        {% for category in categories %}
+        <li class="{{ category.children ? 'subs' : ''}}" data-category-id="{{ category.id }}">
+            <a class="t-color" href="{{ category.link }}">{{ category.name }}{{ category.children ? '<i aria-hidden class="icon icon-down-mini"></i>' : ''}}</a>
+            {% if category.children %}
+            <ul class="level-second">
+                {% for level2 in category.children %}
+                <li class="{{ level2.children ? 'subs'}}" data-category-id="{{ level2.id }}">
+                    <a href="{{ level2.link }}">{{ level2.name }}{{ level2.children ? '<i aria-hidden class="icon icon-down-mini"></i>' : ''}}</a>
+                    {% if level2.children %}
+                    <ul class="level-third">
+                        {% for level3 in level2.children %}
+                        <li data-category-id="{{ level3.id }}">
+                            <a href="{{ level3.link }}">{{ level3.name }}</a>
+                        </li>
+                        {% endfor %}
+                        <li>
+                            <a href="{{ level2.link }}">Ver todos</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </li>                
+                {% endfor %}
+                <li>
+                    <a href="{{ category.link }}">Ver todos</a>
+                </li>
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="shadow-nav"></div>

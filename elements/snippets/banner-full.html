@@ -1,0 +1,63 @@
+{% if utils.is_mobile and banner.extra10  %}
+
+    {% if banners.extra10.slides or banner.extra10 %}
+    <div class="banner-full">
+        <div class="owl-full owl-carousel">
+            {% if banners.extra10.slides %}
+
+                {% for slide in banners.extra10.slides %} 
+                    {% if slide.link == "" %}
+                    <div class="item">
+                        <a>
+                            <img alt="banner" src="{{ slide.image }}">
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="item">
+                        <a href="{{ slide.link }}">
+                            <img alt="banner" src="{{ slide.image }}">
+                        </a>
+                    </div>
+                    {% endif %} 
+                {% endfor %}
+            {% else %}
+                <div class="item">
+                    {{ banner.extra10 }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}                 
+
+{% else %}   
+
+    {% if banners.home.slides or banner.home %}
+    <div class="banner-full">
+        <div class="owl-full owl-carousel">
+            {% if banners.home.slides %}
+
+                {% for slide in banners.home.slides %} 
+                    {% if slide.link == "" %}
+                    <div class="item">
+                        <a>
+                            <img alt="banner" src="{{ slide.image }}">
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="item">
+                        <a href="{{ slide.link }}">
+                            <img alt="banner" src="{{ slide.image }}">
+                        </a>
+                    </div>
+                    {% endif %} 
+                {% endfor %}
+            {% else %}
+                <div class="item">
+                    {{ banner.home }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+{% endif %} 

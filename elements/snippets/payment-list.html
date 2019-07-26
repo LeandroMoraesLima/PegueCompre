@@ -1,0 +1,20 @@
+<div class="box-tel">
+    <div class="text">Pagamento à prazo</div>
+</div>
+<ul class="payment-list flex f-wrap">
+    {% for payment in paymentMethods.credit %}
+        <li class="payment-form">
+            <img src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}">
+        </li>
+    {% endfor %} 
+</ul>
+<div class="box-tel">
+    <div class="text">Pagamento à vista</div>
+</div>
+<ul class="payment-list flex f-wrap">
+     {% for payment in paymentMethods.order %}
+    <li class=" payment-form">
+        <img src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}">
+    </li>
+    {% endfor %}
+</ul>

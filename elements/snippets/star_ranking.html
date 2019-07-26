@@ -1,0 +1,16 @@
+{#
+# Listagem de estrelas Avaliação Produto
+# elements/snippets/ranking.html
+#}
+<span class="ranking">
+   {% if ranking.rating > 0 %}
+       {% for star in 1..ranking.rating %}
+           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+       {% endfor %}
+       {% if ranking.rating < 5 %}
+          {% for j in 0..ranking.rating % 5  %}
+               <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+           {% endfor %}
+       {% endif %}
+   {% endif %}
+</span> 

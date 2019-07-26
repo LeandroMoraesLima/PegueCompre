@@ -1,0 +1,305 @@
+{% if settings.limitProductsNew == '4' %}
+    {% set limitProductsNew = 4 %}
+{% endif %}
+{% if settings.limitProductsNew == '8' %}
+    {% set limitProductsNew = 8 %}
+{% endif %}
+{% if settings.limitProductsNew == '12' %}
+    {% set limitProductsNew = 12 %}
+{% endif %}
+{% if settings.limitProductsNew == '16' %}
+    {% set limitProductsNew = 16 %}
+{% endif %}
+
+{% set productFeatured = Products({
+    'filter': ['featured', 'available'],
+    'limit': limitProductsNew,
+    'order': 'rand',
+    })
+%}
+
+{% if settings.limitProductsFeatured == '4' %}
+    {% set limitProductsFeatured = 4 %}
+{% endif %}
+{% if settings.limitProductsFeatured == '8' %}
+    {% set limitProductsFeatured = 8 %}
+{% endif %}
+{% if settings.limitProductsFeatured == '12' %}
+    {% set limitProductsFeatured = 12 %}
+{% endif %}
+{% if settings.limitProductsFeatured == '16' %}
+    {% set limitProductsFeatured = 16 %}
+{% endif %}
+
+{% set productNew = Products({
+    'filter': ['new', 'available'],
+    'limit': limitProductsFeatured,
+    'order': 'rand',
+    })
+%}
+
+
+
+{% set productPromo = Products({
+    'filter': ['new'],
+    'limit': limitProductsFeatured,
+    'order': 'rand',
+    })
+%}
+
+<div class="content-home">   
+
+    <div class="relampago">
+        <h2>
+            Ofertas Ralâmpago
+        </h2>
+        <!-- <ul>
+            <li>
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M298.667,25.6h-85.333c-4.71,0-8.533,3.823-8.533,8.533c0,4.71,3.823,8.533,8.533,8.533h85.333
+                                c4.71,0,8.533-3.823,8.533-8.533C307.2,29.423,303.377,25.6,298.667,25.6z"/>
+                        </g>
+                    </g>
+                    <g>
+                        <g>
+                            <path d="M358.4,25.6h-8.533c-4.71,0-8.533,3.823-8.533,8.533c0,4.71,3.823,8.533,8.533,8.533h8.533
+                                c4.71,0,8.533-3.823,8.533-8.533C366.933,29.423,363.11,25.6,358.4,25.6z"/>
+                        </g>
+                    </g>
+                    <g>
+                        <g>
+                            <path d="M266.598,435.2H245.41c-12.979,0-23.543,10.564-23.543,23.543v4.122c0,12.979,10.564,23.535,23.535,23.535h21.188
+                                c12.979,0,23.543-10.556,23.543-23.535v-4.122C290.133,445.764,279.569,435.2,266.598,435.2z M273.067,462.865
+                                c0,3.567-2.901,6.468-6.468,6.468H245.41c-3.575,0-6.477-2.901-6.477-6.468v-4.122c0-3.575,2.901-6.477,6.477-6.477h21.18
+                                c3.576,0,6.477,2.901,6.477,6.477V462.865z"/>
+                        </g>
+                    </g>
+                    <g>
+                        <g>
+                            <path d="M370.227,0H141.781c-17.007,0-30.848,13.841-30.848,30.848v450.304c0,17.007,13.841,30.848,30.848,30.848h228.437
+                                c17.007,0,30.848-13.841,30.848-30.839V30.848C401.067,13.841,387.226,0,370.227,0z M384,481.152
+                                c0,7.595-6.178,13.781-13.773,13.781H141.781c-7.603,0-13.781-6.187-13.781-13.773V30.848c0-7.595,6.178-13.781,13.781-13.781
+                                h228.437c7.603,0,13.781,6.187,13.781,13.781V481.152z"/>
+                        </g>
+                    </g>
+                    <g>
+                        <g>
+                            <path d="M392.533,51.2H119.467c-4.71,0-8.533,3.823-8.533,8.533v358.4c0,4.71,3.823,8.533,8.533,8.533h273.067
+                                c4.71,0,8.533-3.823,8.533-8.533v-358.4C401.067,55.023,397.244,51.2,392.533,51.2z M384,409.6H128V68.267h256V409.6z"/>
+                        </g>
+                    </g>
+
+                </svg>
+                Telefonia
+            </li>
+            <li>
+               <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436.8 256" style="enable-background:new 0 0 436.8 256;" xml:space="preserve">
+                    <path d="M343.7,63c-12.7,0-24.8,2.6-35.8,7.2l-26.4-51.2h36.9c4,0,7.3,3.3,7.3,7.3s-3.3,7.3-7.3,7.3h-7.9c-4.1,0-7.5,3.4-7.5,7.5
+                        s3.4,7.5,7.5,7.5h7.9c12.3,0,22.3-10,22.3-22.3s-10-22.3-22.3-22.3h-49.2c-2.6,0-5,1.4-6.4,3.6c-1.4,2.2-1.5,5-0.3,7.3l13.1,25.5
+                        H167.4l-10.9-21.4h17.3c4.1,0,7.5-3.4,7.5-7.5s-3.4-7.5-7.5-7.5h-49.2c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h15.1l14.6,28.6
+                        L137.1,74C124,67,109,63,93.1,63C41.8,63,0,104.7,0,156s41.8,93.1,93.1,93.1c48.8,0,89-37.8,92.8-85.6h22l-8.5,27.8h-4.9
+                        c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h27c4.1,0,7.5-3.4,7.5-7.5s-3.4-7.5-7.5-7.5H215l9.9-32.1l62.4-96.3l7.3,14.1
+                        c-26.4,16.5-43.9,45.7-43.9,79c0,51.3,41.8,93.1,93.1,93.1c51.3,0,93.1-41.8,93.1-93.1C436.8,104.7,395.1,63,343.7,63z M162.1,62.9
+                        l43.7,85.6h-19.9c-2.2-27-15.9-50.8-36.2-66.4L162.1,62.9z M170.8,148.5h-64l34.7-53.7C157.7,107.7,168.7,126.8,170.8,148.5z
+                         M93.1,234.1C50,234.1,15,199.1,15,156C15,113,50,78,93.1,78c12.9,0,25.1,3.2,35.8,8.7L86.8,152c-1.5,2.3-1.6,5.2-0.3,7.7
+                        c1.3,2.4,3.8,3.9,6.6,3.9h77.7C167,203.1,133.6,234.1,93.1,234.1z M218.8,141.1l-43.7-85.7h99.3L218.8,141.1z M343.7,234.1
+                        c-43.1,0-78.1-35-78.1-78.1c0-27.5,14.3-51.7,35.8-65.6l35.6,69.1c1.3,2.6,4,4.1,6.7,4.1c1.2,0,2.3-0.3,3.4-0.8
+                        c3.7-1.9,5.1-6.4,3.2-10.1l-35.6-69.1c9-3.6,18.7-5.6,28.9-5.6c43.1,0,78.1,35,78.1,78.1C421.8,199.1,386.8,234.1,343.7,234.1z"/>
+                </svg>
+                Esporte e Lazer
+            </li>
+        </ul> -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M298.667,25.6h-85.333c-4.71,0-8.533,3.823-8.533,8.533c0,4.71,3.823,8.533,8.533,8.533h85.333
+                                    c4.71,0,8.533-3.823,8.533-8.533C307.2,29.423,303.377,25.6,298.667,25.6z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M358.4,25.6h-8.533c-4.71,0-8.533,3.823-8.533,8.533c0,4.71,3.823,8.533,8.533,8.533h8.533
+                                    c4.71,0,8.533-3.823,8.533-8.533C366.933,29.423,363.11,25.6,358.4,25.6z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M266.598,435.2H245.41c-12.979,0-23.543,10.564-23.543,23.543v4.122c0,12.979,10.564,23.535,23.535,23.535h21.188
+                                    c12.979,0,23.543-10.556,23.543-23.535v-4.122C290.133,445.764,279.569,435.2,266.598,435.2z M273.067,462.865
+                                    c0,3.567-2.901,6.468-6.468,6.468H245.41c-3.575,0-6.477-2.901-6.477-6.468v-4.122c0-3.575,2.901-6.477,6.477-6.477h21.18
+                                    c3.576,0,6.477,2.901,6.477,6.477V462.865z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M370.227,0H141.781c-17.007,0-30.848,13.841-30.848,30.848v450.304c0,17.007,13.841,30.848,30.848,30.848h228.437
+                                    c17.007,0,30.848-13.841,30.848-30.839V30.848C401.067,13.841,387.226,0,370.227,0z M384,481.152
+                                    c0,7.595-6.178,13.781-13.773,13.781H141.781c-7.603,0-13.781-6.187-13.781-13.773V30.848c0-7.595,6.178-13.781,13.781-13.781
+                                    h228.437c7.603,0,13.781,6.187,13.781,13.781V481.152z"/>
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M392.533,51.2H119.467c-4.71,0-8.533,3.823-8.533,8.533v358.4c0,4.71,3.823,8.533,8.533,8.533h273.067
+                                    c4.71,0,8.533-3.823,8.533-8.533v-358.4C401.067,55.023,397.244,51.2,392.533,51.2z M384,409.6H128V68.267h256V409.6z"/>
+                            </g>
+                        </g>
+
+                    </svg>
+                    Telefonia
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 436.8 256" style="enable-background:new 0 0 436.8 256;" xml:space="preserve">
+                        <path d="M343.7,63c-12.7,0-24.8,2.6-35.8,7.2l-26.4-51.2h36.9c4,0,7.3,3.3,7.3,7.3s-3.3,7.3-7.3,7.3h-7.9c-4.1,0-7.5,3.4-7.5,7.5
+                            s3.4,7.5,7.5,7.5h7.9c12.3,0,22.3-10,22.3-22.3s-10-22.3-22.3-22.3h-49.2c-2.6,0-5,1.4-6.4,3.6c-1.4,2.2-1.5,5-0.3,7.3l13.1,25.5
+                            H167.4l-10.9-21.4h17.3c4.1,0,7.5-3.4,7.5-7.5s-3.4-7.5-7.5-7.5h-49.2c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h15.1l14.6,28.6
+                            L137.1,74C124,67,109,63,93.1,63C41.8,63,0,104.7,0,156s41.8,93.1,93.1,93.1c48.8,0,89-37.8,92.8-85.6h22l-8.5,27.8h-4.9
+                            c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h27c4.1,0,7.5-3.4,7.5-7.5s-3.4-7.5-7.5-7.5H215l9.9-32.1l62.4-96.3l7.3,14.1
+                            c-26.4,16.5-43.9,45.7-43.9,79c0,51.3,41.8,93.1,93.1,93.1c51.3,0,93.1-41.8,93.1-93.1C436.8,104.7,395.1,63,343.7,63z M162.1,62.9
+                            l43.7,85.6h-19.9c-2.2-27-15.9-50.8-36.2-66.4L162.1,62.9z M170.8,148.5h-64l34.7-53.7C157.7,107.7,168.7,126.8,170.8,148.5z
+                             M93.1,234.1C50,234.1,15,199.1,15,156C15,113,50,78,93.1,78c12.9,0,25.1,3.2,35.8,8.7L86.8,152c-1.5,2.3-1.6,5.2-0.3,7.7
+                            c1.3,2.4,3.8,3.9,6.6,3.9h77.7C167,203.1,133.6,234.1,93.1,234.1z M218.8,141.1l-43.7-85.7h99.3L218.8,141.1z M343.7,234.1
+                            c-43.1,0-78.1-35-78.1-78.1c0-27.5,14.3-51.7,35.8-65.6l35.6,69.1c1.3,2.6,4,4.1,6.7,4.1c1.2,0,2.3-0.3,3.4-0.8
+                            c3.7-1.9,5.1-6.4,3.2-10.1l-35.6-69.1c9-3.6,18.7-5.6,28.9-5.6c43.1,0,78.1,35,78.1,78.1C421.8,199.1,386.8,234.1,343.7,234.1z"/>
+                    </svg>
+                    Esporte e Lazer
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                
+
+
+                
+
+                {% element 'showcase' { 
+                    "products": productNew,
+                    "slide" : settings.product_carousel,        
+                    "showcaseTitle": "Recomendados para você" ,
+                    "sType": "relamp",
+
+                } %}
+
+
+
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- {% for product in productPromo %}
+      {{ product.name }}
+    {% endfor %} -->
+
+
+    <div class="bannergrand">
+        
+        {% if banner.extra5 %}
+          {{ banner.extra5 }}
+        {% endif %}
+        
+    </div>
+
+   {% element 'showcase' { 
+        "products": productNew,
+        "slide" : settings.product_carousel,        
+        "showcaseTitle": "Recomendados para você" 
+    } %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="bannergrand col-md-6">
+                
+                {% if banner.extra6 %}
+                  {{ banner.extra6 }}
+                {% endif %}
+                
+            </div> 
+
+            <div class="bannergrand col-md-6">
+                
+                {% if banner.extra7 %}
+                  {{ banner.extra7 }}
+                {% endif %}
+                
+            </div> 
+        </div>
+    </div>
+
+    {% element 'showcase' { 
+        "products": productNew,
+        "slide" : settings.product_carousel,        
+        "showcaseTitle": "Recomendados para você" 
+    } %}
+    
+    {% element 'showcase' { 
+        "products": productNew,
+        "slide" : settings.product_carousel,        
+        "showcaseTitle": "Recomendados para você" 
+    } %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="banners">           
+                <div class="banner-grand">
+                    
+                    {% if banner.extra8 %}
+                      {{ banner.extra8 }}
+                    {% endif %}
+                    
+                </div>           
+                <div class="banner-lateral">                   
+
+                    <div class="banners-lateral">
+                        
+                        {% if banner.extra9 %}
+                          {{ banner.extra9 }}
+                        {% endif %}
+                        
+                    </div> 
+
+                    <div class="banners-lateral">
+                        
+                        {% if banner.extra10 %}
+                          {{ banner.extra10 }}
+                        {% endif %}
+                        
+                    </div> 
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    
+
+    {% if settings.exibir_depoimentos %} 
+    <div class="person-shop ">
+        <div class="title-section center">
+            <span class="string uppercase">Depoimentos de quem comprou</span>
+        </div>
+        <div class="box-person">
+            {% element 'CustomerReview.reviews' %}
+        </div>
+    </div>
+    {% endif %}
+
+</div>

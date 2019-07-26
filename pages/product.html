@@ -1,0 +1,256 @@
+{% if banner.title %}
+    <div class="banner banner-title {% if not settings.enable_banner_default %}mobile-off{% endif %}">
+        {{ banner.title }}
+    </div>
+{% endif %}	
+
+<div id="product-container" class="produto-wrapper product-detail" itemscope itemtype="http://schema.org/Product">
+
+    {% element 'schema/product' {'product': product} %}
+    
+    <div class="clearfix">
+        {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
+        <div class="box-col-product flex">
+
+            <div class="product-colum-left">
+
+                {% if product.images %}
+                    {% if settings.product_zoom == "custom" %}
+                    <div class="product-gallery">
+
+                        <ul class="slider-for">
+                            {% for image in product.images %}
+                            <li>
+                                <div class="img-zoom">
+                                    <img src="{{ image.full }}" alt="zoom">
+                                </div>
+                            </li>
+                            {% endfor %}
+                            {% if product.video %}
+                            <li id="modal-video">
+                                <div class="exibe-video">
+                                    <iframe width="560" height="315" src="{{ product.video }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div class="shadow"></div>
+                            </li>
+                            {% endif %}
+                        </ul>
+
+                        <ul class="slider-nav">
+                            {% for image in product.images %}
+                            <li>
+                                <img src="{{ image.medium }}" alt="thumb">
+                            </li>
+                            {% endfor %}
+                            {% if product.video %}
+                            <li class="video">
+                                <span>
+                                    <svg width="65px"  height="55px" viewBox="0 0 461.001 461.001">
+                                        <path style="fill:#F61C0D;" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
+                                        c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
+                                        C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
+                                        c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
+                                    </svg>                                    
+                                </span>   
+                            </li>                                 
+                            {% endif %}
+                        </ul>
+
+                    </div>
+                    {% else %}
+                    <div id="visualBlock" class="product-gallery">
+                        {{ productHelper.gallery() }}
+                    </div>
+                    {% endif %}
+                {% else %}
+                    <div class="product-gallery no-image">
+                        <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada">
+                    </div>
+                {% endif %}                
+
+                <div class="lista-social">
+
+                    {% if not product.upon_request and product.available %}
+                        {{ productHelper.wishlist() }}
+                    {% endif %}
+
+                    {% if settings.social_position == 0 %}
+                    <div class="product-social sidepicture">
+                        {{ productHelper.social() }}
+                    </div>
+                    {% endif %} 
+                    
+                </div>
+
+            </div>
+            
+            <div class="product-colum-right">    
+
+                <h1 class="product-name">{{ product.name }}</h1>
+
+                <div class="product-labels">
+                    {{ productHelper.labels() }}
+                    {{ productHelper.banner() }}
+                </div>
+                
+                <div class="product-details uppercase">                    
+
+                    {% if settings.show_product_brand %}
+                        {% if product.brand|length > 0 %}
+                        <div class="item">
+                            <span>Marca: {{ product.brand }}</span>
+                        </div>
+                        {% endif %}
+                    {% endif %} 
+                
+                    {% if product.model|length > 0 %}
+                    <div class="item">
+                        <span>Modelo: {{ product.model }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if settings.show_reference %}
+                        {% if product.reference|length > 0 %}
+                        <div class="item">
+                            <span>Ref: {{ product.reference }}</span>
+                        </div>    
+                        {% endif %}
+                    {% endif %}   
+           
+                    {% if product.warranty|length > 0 %}
+                    <div class="item">
+                        <span>Garantia: {{ product.warranty }}</span>
+                    </div>
+                    {% endif %}  
+
+                    {% if settings.show_product_stock %}
+                        {% if product.stock and settings.show_product_stock %}
+                        <div class="item">
+                            <span>Estoque: {{ product.stock }}</span>
+                        </div>
+                        {% endif %}    
+                    {% endif %}       
+
+                    {% if product.availability|length > 0 %}
+                        {% if product.availability %}
+                        <div class="item">
+                            <span>Disponibilidade: {{ product.availability }}</span>
+                        </div>  
+                        {% endif %}
+                    {% endif %}    
+
+                    {% if product.included_items %}
+                    <div class="item">
+                        <span>Itens inclusos: {{ product.included_items }}</span>
+                    </div>
+                    {% endif %}      
+
+                </div>
+
+                {% element 'product/rating' %}
+
+                {{ productHelper.bonus() }}
+
+                <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
+                    
+                    <div data-module="pricing" data-snippet="snippets/preco_tempo_menor" data-product-id="{{ product.id }}" class="pricing">
+                        <div class="load"><div class="ico"></div></div>
+                    </div>
+                    {{ productHelper.icons() }}
+                    {{ productHelper.variants() }}
+                    {{ productHelper.gifts() }}
+                    {{ product.additional_information }}
+                    {{ productHelper.form() }}
+                    {{ productHelper.kit() }}                    
+                    {{ productHelper.shipping() }}
+                    
+                </form>   
+                
+                {% if product.additional_message %}
+                <div class="additional-message">
+                    {{ product.additional_message }}
+                </div>
+                {% endif %}             
+          
+                {% if settings.social_position == 1 %}
+                <div class="product-social">
+                    {{ productHelper.social() }}
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if productHelper.bundle() %}
+<div class="product-cross-sell">
+    <div class="title-section center">
+        <span class="string uppercase">Compre Junto</span>
+    </div>
+    {{ productHelper.bundle() }}
+</div>
+{% endif %}
+
+<div id="ProdBlock" class="product-tabs">
+    
+    <div id="ProdAbas" class="abasProduto tab-panel">
+        <ul class="clearfix">
+            {% for key, tab in productTabs %}
+              {% if tab.container_id %}
+              <li id="{{ tab.id }}" {% if key=='description' %}class="aberta" {% endif %}>
+                <a href="#" data-tab-container-id="{{ tab.container_id }}" data-tab-url="{{ tab.url }}">{{ tab.description }}</a>
+              </li>
+              {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div id="descricao" class="prodBox">
+        <div class="board">
+            <div class="board_htm description">
+                {{ product.description ? product.description : product.description_small }}
+            </div>
+        </div>
+    </div>
+
+    <div id="itensInclusos" class="prodBox">
+        <div class="board">
+            {{ product.included_items }}
+        </div>
+    </div>
+
+    <div id="coments" class="prodBox">
+        <div class="board">
+            {% element 'product/comments' %}
+        </div>
+    </div>
+
+    <div id="caracteristicas" class="prodBox">
+        <div class='board'>
+            {% element 'product/properties' %}
+        </div>
+    </div>
+
+    {{ productTabs.custom.content }}
+    {{ productTabs.downloads.content }}
+
+    <div id="garantia" class="prodBox">
+        <img class="loader" src="{{ tray.paths.system_image }}/big-loading.svg" />
+    </div>
+    
+    <div data-app="product.payment-methods" id="formasPagto" class="prodBox"></div>
+   
+</div>
+
+{% element 'showcase' { 
+    "products": product.related_products,
+    "slide" : "on",
+    "showcaseTitle": "Produtos relacionados"
+} %}
+
+{% if banner.bottom %}
+    <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">
+        {{ banner.bottom }}
+    </div>
+{% endif %}

@@ -1,0 +1,14 @@
+<div class="breadcrumb">
+  <span class="breadcrumb-item"><a href="/" class="t-color">Home</a></span>
+  <span class="icon-breadcrumb">/</span>
+  {% if breadcrumb %}    {% for item in breadcrumb %}
+      <span class="breadcrumb-item">
+
+        <a class="t-color" href="{{ item.link}}" title="{{ item.name }}">{{ item.name }}</a>
+      </span>
+      <span class="icon-breadcrumb">/</span>
+    {% endfor %}
+   
+  {% endif %}
+  <span class="breadcrumb-item">{{ pages.current == 'product' ? product.name : category.name }}</span>
+</div>

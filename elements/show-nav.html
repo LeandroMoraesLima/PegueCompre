@@ -1,0 +1,5 @@
+{% if products|length > 0 %}
+    {% for product in products %} {% set ranking = product.ranking %}
+        {% element 'snippets/product' {"product": product} %}
+    {% endfor %}
+{% endif %}

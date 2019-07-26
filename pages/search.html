@@ -1,0 +1,55 @@
+<div class="catalog-header">
+{% if breadcrumb %} {% element 'snippets/breadcrumb' %} {% endif %}
+    {% if banner.title %}
+    <div class="banner banner-title {% if not settings.enable_banner_default %}mobile-off{% endif %}">
+        {{ banner.title }}
+    </div>
+    {% endif %}	
+
+    
+    
+    <div class="bar-info-catalog flex justify-between">
+
+        {% if search.word %}
+        <h2 class="catalog-name">{{ search.word }}</h2>
+        {% else %}
+        <h2 class="catalog-name">Todos os produtos</h2>
+        <h2 class="catalog-name">{{ category.name }}</h2>
+        {% endif %}
+        
+    
+        {% if products|length > 0 %}
+            
+            <div class="system-filter">
+                {% element 'snippets/filter' {
+                } %}
+            </div>
+            
+        {% endif %}
+        </div>
+</div>
+
+
+{% if products|length > 0 %}
+
+    <div class="catalog-content row">
+        {% element 'showcase-catalog' {
+            "products": products
+        } %}
+    </div>
+
+    <div class="catalog-footer pagination">
+        {% element 'snippets/paginate' %}
+    </div>
+
+{% else %}
+
+    <p>Nenhum produto encontrado nessa categoria.</p>
+
+{% endif %}
+
+{% if banner.bottom %}
+    <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">
+        {{ banner.bottom }}
+    </div>
+{% endif %}

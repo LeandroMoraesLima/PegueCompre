@@ -1,0 +1,24 @@
+<div class="search-counter">
+    {{ paginate.counter('Resultado {:count} produto(s) em {:pages} p&aacute;gina(s)') }}
+</div>
+
+<div class="paginate-links">
+{% if paginate.params.pageCount > 1 %}
+
+    {% if paginate.hasPrev %}
+        {{ paginate.prev('< Anterior', {'class': 'page-prev page-link'}) }}
+    {% endif %}
+ 
+    {{ paginate.numbers({
+        'modulus': 4,
+        'separator': '',
+        'class': 'page-link',
+        'currentClass': 'page-current'
+    }) }}
+    
+    {% if paginate.hasNext %}
+        {{ paginate.next('Próxima >', {'class': 'page-next page-link'}) }}
+    {% endif %}
+    
+{% endif %}
+</div>

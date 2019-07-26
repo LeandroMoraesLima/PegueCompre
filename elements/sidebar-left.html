@@ -1,0 +1,11 @@
+{% if settings.filters %}
+    {% element 'smartfilter' %}
+{% else %} 
+    {% element 'snippets/menu' %}   
+{% endif %} 
+
+{% if banner.side %}
+<div class="banner banner-sidebar hidden-xs">
+    {{ banner.side }}
+</div>
+{% endif %}    

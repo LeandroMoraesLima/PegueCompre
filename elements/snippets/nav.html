@@ -1,0 +1,118 @@
+<nav class="nav">
+    <div class="container-fluid">
+        <ul class="list level-primary flex">
+
+            {% if categories|length >= 7 %}
+            <li class="{{ categories|length > 4 ? 'flex-grow' : 'padding' }} subs no-relative">
+
+                <a class="t-color" href="#">Todos os departamentos<i aria-hidden class="icon icon-down-mini"></i></a>
+
+                <div class="box-sub flex" data-lenght="{{ categories|length - 7 }}">
+
+                    <ul class="level-second flex {{ (categories|length - 7) > 4 ? 'f-wrap'}}">
+                        {% for category in categories %}
+                        {% if loop.index >= 7 %}
+                        <li class="{{ category.children ? 'sub'}}" data-category-id="{{ category.id }}">
+                            <a class="t-color uppercase" href="{{ category.link }}">{{ category.name }}</a>
+                            {% if category.children %}
+                            
+                            {% endif %}
+                        </li>
+                         {% endif %}
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </li>
+
+            {% for category in categories %}
+                {% if loop.index <= 6 %}
+
+                <li class="{{ categories|length > 4 ? 'flex-grow' : 'padding' }} {{ category.children ? 'subs'}} {{category.children|length > 4 ? 'no-relative'}}" data-category-id="{{ category.id }}">
+                    <a class="t-color" href="{{ category.link }}">{{ category.name }}{{ category.children ? '<i aria-hidden class="icon icon-down-mini"></i>' : ''}}</a>
+                    {% if category.children %}
+                    {% set level2 = category.children %}
+                    <div class="box-sub flex" data-lenght="{{level2|length}}">
+
+                        {% if settings.product_show_nav == '1' %}
+                            {% set productCategory = Products({ 'filter': ['featured', 'available'], 'limit': 1, 'order': {'quantity_sold': 'desc'}, categories: category.id }) %}
+                        {% endif %}
+
+                        {% if settings.product_show_nav == '2' %}
+                            {% set productCategory = Products({ 'filter': ['featured', 'available','new'], 'limit': 1, 'order': {'quantity_sold': 'desc'}, categories: category.id }) %}
+                        {% endif %}
+
+                        {% if settings.product_show_nav == '3' %}
+                            {% set productCategory = Products({ 'filter': ['featured','new', 'available'], 'limit': 1, 'order': 'rand', categories: category.id }) %}
+                        {% endif %}
+
+                        {% if settings.product_show_nav == '4' %}
+                            {% set productCategory = Products({ 'filter': ['new', 'available'], 'limit': 1, 'order': {'quantity_sold': 'desc'}, categories: category.id }) %}
+                        {% endif %}
+
+                        {% if productCategory and settings.product_nav %}
+                       
+                        {% endif %}
+                        <ul class="level-second flex {{level2|length > 4 ? 'f-wrap'}}">
+                            {% for level2 in level2 %}
+                            <li class="{{ level2.children ? 'sub'}}" data-category-id="{{ level2.id }}">
+                                <a class="t-color uppercase" href="{{ level2.link }}">{{ level2.name }}</a>
+                                {% if level2.children %}
+                               
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %} 
+                </li>
+                {% endif %}
+                {% endfor %}
+            {% else %}
+                {% for category in categories %}
+                <li class="{{ categories|length > 4 ? 'flex-grow' : 'padding' }} {{ category.children ? 'subs'}} {{category.children|length > 4 ? 'no-relative'}}" data-category-id="{{ category.id }}">
+                    {% if category.images[0] %}
+                    <img src="{{ category.images[0] }}" alt="">
+                    {% endif %}
+                    <a class="t-color" href="{{ category.link }}">{{ category.name }}{{ category.children ? '<i aria-hidden class="icon icon-down-mini"></i>' : ''}}</a>
+                    {% if category.children %}
+                    {% set level2 = category.children %}
+                    <div class="box-sub flex" data-lenght="{{level2|length}}">
+
+                        {% if settings.product_show_nav == '1' %}
+                            {% set productCategory = Products({ 'filter': ['featured', 'available'], 'limit': 1, 'order': {'quantity_sold': 'desc'}, categories: category.id }) %}
+                        {% endif %}
+
+                        {% if settings.product_show_nav == '2' %}
+                            {% set productCategory = Products({ 'filter': ['featured', 'available','new'], 'limit': 1, 'order': {'quantity_sold': 'desc'}, categories: category.id }) %}
+                        {% endif %}
+
+                        {% if settings.product_show_nav == '3' %}
+                            {% set productCategory = Products({ 'filter': ['featured','new', 'available'], 'limit': 1, 'order': ['rand'], categories: category.id }) %}
+                        {% endif %}
+
+                        {% if settings.product_show_nav == '4' %}
+                            {% set productCategory = Products({ 'filter': ['new', 'available'], 'limit': 1, 'order': {'quantity_sold': 'desc'}, categories: category.id }) %}
+                        {% endif %}
+
+                        {% if productCategory and settings.product_nav %}
+                        
+                        {% endif %}
+                        <ul class="level-second flex {{level2|length > 4 ? 'f-wrap'}}">
+                            {% for level2 in level2 %}
+                            <li class="{{ level2.children ? 'sub'}}" data-category-id="{{ level2.id }}">
+                                <a class="t-color uppercase" href="{{ level2.link }}">{{ level2.name }}</a>
+                                {% if level2.children %}
+                                
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</nav>

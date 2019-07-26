@@ -1,0 +1,46 @@
+{% set checkout = "checkout_cart" in pages.current ? "true" : "" %}
+<footer class="footer">    
+
+    <div class="foo-content">
+        <div class="container">
+            <div class="line flex justify-between wrap">               
+
+                <div class="box-payment">
+                    <h3 class="title uppercase">Pagamento</h3>
+                    <div class="overflow">
+                    {% element 'snippets/payment-list' %}
+                    </div>
+                </div>
+                <div class="box-seal">
+                    <h3 class="title uppercase">Compra segura</h3>
+                    <div class="overflow space-low">
+                        <ul class="list-seal">
+                            <li>
+                                <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank">
+                                    <img src="{{ asset('img/google.png') }}" alt="Google Safe" />
+                                </a>
+                            </li>
+                            {% if seals.ebit %}
+                            <li class="seal-ebit">{{ seals.ebit }}</li>
+                            {% endif %} {% if seals.hackersafe %}
+                            <li>{{ seals.hackersafe }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>            
+        </div>
+    </div>
+
+    <div class="copy">
+        <div class="container">
+            <p>{{ Translation('ag_mensagem_rodape') }}</p>
+            <a class="logo uppercase" href="//www.netzee.com.br" target="_blank" title="Netzee">
+                Desenvolvido por:
+                <img src="{{ asset('img/netzee.svg') }}" alt="Netzee">
+            </a>
+        </div>
+    </div>
+
+</footer>

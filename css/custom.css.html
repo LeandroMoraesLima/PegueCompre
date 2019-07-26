@@ -1,0 +1,29 @@
+/*
+Theme Name: Tools Theme
+Theme URI: http://netstore-tools.commercesuite.com.br
+Author: Netzee
+*/
+
+:root{
+    --color-primary: {{ settings.color_primary ? settings.color_primary : '#ec6e0d' }};
+    --color-primary-hover: {{ settings.color_primary_hover ? settings.color_primary_hover : '#d9650c' }};
+    --color-second: {{ settings.color_secundaria ? settings.color_secundaria : '#000000' }};
+    --color-second-hover: {{ settings.color_secundaria_hover ? settings.color_secundaria_hover : '#000000' }};
+    --color-third: {{ settings.color_terciaria ? settings.color_terciaria : '#3ed527' }};
+    --color-third-hover: {{ settings.color_terciaria_hover ? settings.color_terciaria_hover : '#38c223' }};
+    --color-four: {{ settings.color_quarta ? settings.color_quarta : '#3ed527' }};
+    --color-fifth: {{ settings.color_quinta ? settings.color_quinta : '#ededef' }};
+    --color-white: {{ settings.color_bg_instagram ? settings.color_bg_instagram : '#ec6e0d' }};
+    --color-topo: {{ settings.color_bg_topo ? settings.color_bg_topo : '#ffffff' }};
+    --text-color: {{ settings.color_text ? settings.color_text : '#5a5865' }};
+    --gradient: {{ settings.color_inicio_gradient ? settings.color_inicio_gradient : '#605f6d' }};
+    --color-footer: {{ settings.color_footer ? settings.color_footer : '#ededef' }};
+    --box-shadow: 0 4px 16px var(--color-fifth);
+    --color-title: {{ settings.color_title ? settings.color_title : '#585663' }};
+    --color-topo: {{ settings.color_bg_topo ? settings.color_bg_topo : '#ffffff' }};
+    --color-text: {{ settings.color_text_topo ? settings.color_text_topo : '#5a5865' }};
+    --color-icon: {{ settings.color_icons_topo ? settings.color_icons_topo : '#ec6e0d' }};
+    --color-menu: {{ settings.color_menu_categoria ? settings.color_menu_categoria : '#ffffff' }};
+    --color-regua: {{ settings.color_regua ? settings.color_regua : '#ec6e0d' }};
+    font-size: 16px;
+}
