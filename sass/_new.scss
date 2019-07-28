@@ -461,6 +461,53 @@ abbr{
     	background-color: #436205 !important;
     }
 }*/
+
+.info-site .media{
+	text-align: left;
+	align-items: center;
+
+	.icon-phone{
+
+		.fab {
+			font-size: 28px;
+    		padding-right: 5px;
+    		color: #99bb55;
+
+		}
+	}
+	.phone{
+		font-weight: 600;
+	}
+	.fale-conosco{
+		font-size: 13px;
+		font-weight: 600;
+	}
+}
+.cart{
+	.far{
+		font-size: 28px;
+		color: #99bb55;
+	}
+}
+.align-end{
+	display: flex;
+    align-items: center;
+
+    .icon-bag{
+    	padding-right: 5px;
+
+    }
+	.title-text{
+		font-size: 15px !important;
+		font-weight: 600;
+	}
+	.text{
+		font-weight: 600;
+	}
+}
+.search{
+    width: 52% !important;
+}
 .box-alerts{
 	display: none;
 }

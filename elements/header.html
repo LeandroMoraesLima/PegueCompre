@@ -23,7 +23,7 @@
             </div>
             <div class="content-right">
 
-                <div class="bar-links flex">
+                <!-- <div class="bar-links flex">
                     
                     <div class="itens-top flex uppercase">
                         <div class="item box-tracking" tabindex="0">
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="account">
-                        <!-- <a class="login" href="{{ links.login }}">
+                        <a class="login" href="{{ links.login }}">
                             <div class="box-text t-color">
                                 <div class="title-text uppercase">
                                     Seja bem vindo, 
@@ -71,10 +71,10 @@
                                 <div class="line uppercase">ou</div>
                                 <a class="link white" href="{{ links.central }}">Minha Conta</a>
                             </div>
-                        </span>  -->   
+                        </span>    
                     </div>
 
-                </div>
+                </div> -->
 
                 <div class="action-shop flex justify-between">
                     <div class="search">
@@ -83,15 +83,14 @@
                     <div class="box-right flex justify-between align-center">
                         <div class="info-site">
                             {% if Translation('ag_telefone_1') != '' %}
-                            <div class="item telefone">
-                                <span class="text t-color">{{ Translation('ag_telefone_1') }}</span>
-                            </div>
-                            {% endif %}
-                            {% if Translation('ag_atendimento') != '' %}
-                            <div class="item atendimento">
-                                <span class="text t-color">{{ Translation('ag_atendimento') }}</span>
-                            </div>
-                            {% endif %}
+                            <div class="media">
+                                <div class="icon-phone"><i class="fab fa-whatsapp"></i></div>
+                                <div class="media-body phone">
+                                    <div class="fale-conosco">Fale Conosco</div>
+                                    {{ Translation('ag_telefone_1') }}
+                                </div>
+                            </div>  
+                            {% endif %}                            
                         </div>
                         <div class="cart">
                             <div class="account">
@@ -117,6 +116,7 @@
                                     </div>
                                 </span> 
                             </div>
+                        </div>
 
 
                             <a class="flex align-end" href="{{ links.cart }}">
@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

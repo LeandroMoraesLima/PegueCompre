@@ -192,6 +192,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .justify-between{
     justify-content: space-between;
+    padding: 5px 0;
 }
 
 .justify-around{
@@ -1071,7 +1072,8 @@ body{
 }
 
 .featured{
-    color: var(--color-icon);
+    color: red !important;
+
 }
 
 tray-login .tray-btn-primary{
@@ -1316,7 +1318,7 @@ tray-login .tray-btn-primary:hover{
     font-size: 0.813rem;
     padding: 0 65px 0 25px;
     background: var(--color-fifth);
-    height: 50px;
+    height: 40px;
     width: 100%;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -1344,7 +1346,7 @@ tray-login .tray-btn-primary:hover{
     position: absolute;
     right: 0;
     top: 0;
-    height: 50px;
+    height: 40px;
     padding-right: 0;
     width: 60px;
     background: red;
@@ -1367,7 +1369,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .header .box-right{
-    width: 241px;
+    width: 43%;
 }
 
 .header .box-text .title-text{
@@ -1557,7 +1559,7 @@ header .info-site .atendimento{
     }
 
     .header .search{
-        width: 100%;
+        width: 52% !important;
     }
 
     .header .box-right{
