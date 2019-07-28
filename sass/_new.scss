@@ -228,8 +228,38 @@
 					}
 				}
 			}
-		}
+			.line{
+				padding: 20px 0;
 
+				.text-oferta{
+					display: flex;
+				    justify-content: center;
+				    flex-direction: column;
+				    padding-left: 25px;
+
+				    p{
+				    	margin-bottom: 3px;
+	    				font-weight: 600;
+				    }
+				}
+				.circles{
+					display: flex;
+				    align-items: center;
+				    justify-content: center;
+
+				    .time{
+				    	display: flex;
+					    align-items: center;
+					    flex-direction: column;
+					    border: 1px solid #909090;
+					    border-radius: 100px;
+					    width: 50px;
+					    height: 50px;
+					    margin-right: 20px;
+				    }
+				}
+			}
+		}
 	}
 }
 
@@ -254,6 +284,34 @@
 	}
 }
 
+
+.owl-prev{
+	background-color: #99bb55 !important;
+    border-radius: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 124%;
+    top: 25% !important;
+    outline: none !important;
+
+    &:hover{
+    	background-color: #436205 !important;
+    }
+}
+
+.owl-next{
+	background-color: #99bb55 !important;
+    border-radius: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 124%;
+    top: 25% !important;
+    outline: none !important;
+
+    &:hover{
+    	background-color: #436205 !important;
+    }
+}
 
 
 
@@ -293,4 +351,116 @@
 .product a:hover:before{
     opacity: 1;
     visibility: visible;
+}
+.produto-bonus{
+	margin: 0px 0;
+    padding: 3px;
+}
+#info_preco{
+
+	.preco-parc2{
+		color: #909090;
+
+		strong.color {
+			color: #99bb55 !important;
+			font-weight: 700;
+		}
+	}
+	.preco-de{
+		color: #909090;
+	}
+	strong.preco-parc2 {
+		color: #99bb55 !important;
+		font-weight: 700;
+	}
+	.operadora{
+	color: #909090;
+	}
+}
+.line-inter{
+	border-bottom: 1px solid #909090;
+	margin: 40px 0;
+}
+.plus{
+	border: 1px solid #909090;
+    height: 40px;
+    width: 20px;
+    border-radius: 5px 0px 0px 5px;
+}
+.clear{
+	clear: both !important;
+}
+.minus{
+	border: 1px solid #909090;
+    height: 40px;
+    width: 20px;
+    border-radius: 0px 5px 5px 0px;
+}
+.botao-comprar{
+	background: #99bb55 !important;
+    border-radius: unset;
+    border: 0;
+    color: #fff;
+    padding: 0 20px;
+    height: 44px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 50%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    -webkit-transition: ease-in-out .3s;
+    transition: ease-in-out .3s;
+    margin: 0px auto 0;
+    display: block;
+    float: left;
+
+    &:hover{
+    	background-color: #436205 !important;
+    }
+}
+.produto-calcular-frete{
+	clear: both;
+}
+abbr{
+	text-decoration: none !important;
+}
+#colFotos{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#foto_a{
+	padding: 0;
+    margin: 0;
+}
+/*.jcarousel-prev{
+	background-color: #99bb55 !important;
+    border-radius: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 124%;
+    top: 25% !important;
+    outline: none !important;
+
+    &:hover{
+    	background-color: #436205 !important;
+    }
+}
+.jcarousel-next{
+	background-color: #99bb55 !important;
+    border-radius: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
+    bottom: 124%;
+    top: 25% !important;
+    outline: none !important;
+
+    &:hover{
+    	background-color: #436205 !important;
+    }
+}*/
+.box-alerts{
+	display: none;
 }

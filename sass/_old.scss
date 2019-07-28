@@ -662,11 +662,12 @@ p,ul,li{
 }
 
 input.text,select.text{
-    border: 1px solid #d4d4d4;
+    border: 1px solid #909090;
     height: 40px;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 19px;
     color: var(--text-color);
+    border-right: none;
+    border-left: none;
 }
 
 textarea.textarea{
@@ -2502,13 +2503,13 @@ header .info-site .atendimento{
 }
 
 .catalog-products .arrow{
-    position: absolute;
-    top: 0;
-    bottom: 10%;
+    position: relative;
+    top: 4px;
     height: 50px;
     margin: auto;
-    font-size: 45px;
-    color: #ccc;
+    left: 4px;
+    font-size: 35px;
+    color: #fff;
 }
 
 .catalog-products .owl-prev,
@@ -2518,7 +2519,7 @@ header .info-site .atendimento{
 }
 
 .catalog-products .arrow.prev{
-    left: -18px;
+    left: -5px;
 }
 .catalog-products .arrow.next{
     right: -18px;
@@ -2533,7 +2534,9 @@ header .info-site .atendimento{
 
 @media (max-width: 1200px){
     .catalog-products .arrow.prev{
-        left: -8px;
+        left: 4px;
+        font-size: 35px;
+        color: #fff;
     }
     .catalog-products .arrow.next{
         right: -8px;
@@ -2661,9 +2664,10 @@ header .info-site .atendimento{
     -webkit-transition: ease-in-out .3s;
     transition: ease-in-out .3s;
     width: 100%;
-    max-width: 300px;
-    overflow: hidden;
+    max-width: 250px;
+    /*overflow: hidden;*/
     background: #fff;
+    padding-bottom: 50px;
 }
 
 .product-box:hover{
@@ -2724,11 +2728,13 @@ header .info-site .atendimento{
 .product-box .product-image{
     position: relative;
     width: 100%;
+    max-height: 215px;
 }
 
 .product-box .box-image{
     display: block;
     position: relative;
+    max-height: 150px;
 }
 
 .product-box .box-image::before{
@@ -2766,7 +2772,7 @@ header .info-site .atendimento{
 
 .product-box .action-product{
     position: absolute;
-    bottom: 76px;
+    bottom: 58px;
     left: 0;
     width: 100%;
     text-align: center;
@@ -2775,7 +2781,7 @@ header .info-site .atendimento{
     transform: translateY(0) scale(.8);
     transform-origin: top;
     height: 0;
-    z-index: 2;
+    z-index: 999999999999999;
 }
 
 .product-box:hover .action-product{
@@ -2843,6 +2849,8 @@ header .info-site .atendimento{
     padding: 0 14px 25px;
     width: 100%;
     text-align: center;
+    background-color: white !important;
+    z-index: 999999;
 }
 
 .info-product .product-name,
@@ -2869,7 +2877,7 @@ header .info-site .atendimento{
     left: -3px;
     right: -3px;
     height: 1px;
-    background-color: var(--color-primary);
+    background-color: #909090;
     top: 1px;
     bottom: 0;
     margin: auto;
@@ -2996,7 +3004,7 @@ header .info-site .atendimento{
 /* page product */
 
 .product-colum-left{
-    width: 60%;
+    width: 45%;
     padding-right: 15px;
 }
 
@@ -3031,7 +3039,7 @@ header .info-site .atendimento{
 
     #foto_p {
         width: calc(100% - 120px);
-        min-height: 600px;
+        min-height: 340px;
         float: right;
     }
     #foto_p a,
@@ -3040,17 +3048,17 @@ header .info-site .atendimento{
         max-width: 430px!important;
     }
     #foto_a{
-        transform: rotate(90deg);
+        /*transform: rotate(90deg);
         position: absolute;
         top: 0;
         width: 115px;
         margin: 0;
         padding: 0;
         left: 0;
-        border: 0 none;
+        border: 0 none;*/
     }
     #foto_a .jcarousel-skin-tango .jcarousel-container-horizontal{
-        width: 500px;
+        width: 520px;
     }
     #foto_a .jcarousel-skin-tango .jcarousel-clip-horizontal,
     #foto_a > #carousel {
@@ -3059,7 +3067,7 @@ header .info-site .atendimento{
     }
     #foto_a a img,
     #foto_a .cloud-zoom-gallery-video {
-        transform: rotate(-90deg);
+        /*transform: rotate(-90deg);*/
     }
     #foto_a .jcarousel-skin-tango .jcarousel-item{
         height: 105px;
@@ -3212,17 +3220,20 @@ header .info-site .atendimento{
 }
 
 .box-col-product .product-name{
-    font-size: 1.750rem;
-    font-weight: 400;
-    font-style: italic;
+    font-size: 20px;
+    text-align: left;
     line-height: 1.2;
     margin-bottom: 16px;
+    font-weight: bold;
+    color: #909090;
 }
 
 .product-details{
     font-size: .75rem;
     font-style: italic;
     clear: both;
+    text-align: left;
+    color: #909090;
 }
 
 .product-colum-right > .ranking{
@@ -3264,6 +3275,7 @@ header .info-site .atendimento{
     color: var(--color-second);
     font-weight: 700;
     display: block;
+    color: #99bb55;
 }
 
 #economize{
@@ -3467,6 +3479,8 @@ header .info-site .atendimento{
     margin: unset;
     text-align: center;
     margin-bottom: 15px;
+    width: 155px;
+    float: left;
 }
 #quantidade input.text{
     text-align: center;
@@ -3474,7 +3488,6 @@ header .info-site .atendimento{
 #quantidade #estoque_variacao{
     display: none;
 }
-
 
 .fotosCompreJunto::after{
     content: '=';
@@ -3486,21 +3499,21 @@ header .info-site .atendimento{
 }
 .remove-bg .botao-comprar,
 #ProdBlockCompreJunto .botao-compre-junto{
-    background: var(--color-third);
+    background: #99bb55;
     border-radius: unset;
     border: 0;
     color: #fff;
     padding: 0 20px;
-    height: 60px;
+    height: 44px;
     border-radius: 5px;
     display: inline-block;
-    width: 80%;
+    width: 50%;
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
     -webkit-transition: ease-in-out .3s;
     transition: ease-in-out .3s;
-    margin: 10px auto 0;
+    margin: 0px auto 0;
     display: block;
 }
 #ProdBlockCompreJunto .botao-compre-junto{
@@ -3538,7 +3551,7 @@ header .info-site .atendimento{
 
 .remove-bg .botao-comprar:hover,
 .remove-bg .botao-comprar:focus{
-    background: var(--color-third-hover);
+    background: #436205;
     border-radius: 5px;
 }
 
@@ -4338,6 +4351,7 @@ header .info-site .atendimento{
 }
 .list-products .owl-nav .owl-prev{
     left: -25px;
+
 }
 .list-products .owl-nav .owl-next{
     right: -25px;
@@ -5631,6 +5645,8 @@ footer{
 
 .pricing{
     position: relative;
+    text-align: left;
+    margin-bottom: 25px;
 }
 .pricing .load .ico{
     left: 50%;

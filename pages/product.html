@@ -88,10 +88,10 @@
 
                 <h1 class="product-name">{{ product.name }}</h1>
 
-                <div class="product-labels">
+                <!-- <div class="product-labels">
                     {{ productHelper.labels() }}
                     {{ productHelper.banner() }}
-                </div>
+                </div> -->
                 
                 <div class="product-details uppercase">                    
 
@@ -148,6 +148,8 @@
                 </div>
 
                 {% element 'product/rating' %}
+                {% element 'snippets/star_ranking' {"ranking": product.ranking } %}
+
 
                 {{ productHelper.bonus() }}
 
@@ -156,11 +158,12 @@
                     <div data-module="pricing" data-snippet="snippets/preco_tempo_menor" data-product-id="{{ product.id }}" class="pricing">
                         <div class="load"><div class="ico"></div></div>
                     </div>
+                    <hr class="line-inter">
                     {{ productHelper.icons() }}
                     {{ productHelper.variants() }}
                     {{ productHelper.gifts() }}
                     {{ product.additional_information }}
-                    {{ productHelper.form() }}
+                    {% element('snippets/botoes_qty') %}
                     {{ productHelper.kit() }}                    
                     {{ productHelper.shipping() }}
                     
@@ -191,6 +194,12 @@
     {{ productHelper.bundle() }}
 </div>
 {% endif %}
+
+{% element 'showcase' { 
+    "products": product.related_products,
+    "slide" : "on",
+    "showcaseTitle": "Produtos relacionados"
+} %}
 
 <div id="ProdBlock" class="product-tabs">
     
@@ -243,11 +252,7 @@
    
 </div>
 
-{% element 'showcase' { 
-    "products": product.related_products,
-    "slide" : "on",
-    "showcaseTitle": "Produtos relacionados"
-} %}
+
 
 {% if banner.bottom %}
     <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">
