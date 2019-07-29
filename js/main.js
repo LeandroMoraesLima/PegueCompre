@@ -298,6 +298,28 @@ var theme = {
             }
         });
     },
+    carouselParceiros: function (){
+        jQuery('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            navText: [
+                '<span class="prev arrow icon-left-arrow"></span>',
+                '<span class="next arrow icon-right-arrow"></span>'
+            ],
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+    },
     facebook: function(){
         if(jQuery('#fb-root').is(':visible')){
             (function(d, s, id) {
@@ -520,6 +542,7 @@ jQuery(document).ready(function () {
     theme.trackingSubmit();
     theme.carouselProducts();
     theme.carouselProducts2();
+    theme.carouselParceiros();
     theme.footerMobile();
     theme.slideProduct(); 
     theme.menuIcones();   
