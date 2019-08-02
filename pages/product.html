@@ -164,9 +164,8 @@
                     {{ productHelper.gifts() }}
                     {{ product.additional_information }}
                     {% element('snippets/botoes_qty') %}
-                    {{ productHelper.kit() }}                    
-                    {{ productHelper.shipping() }}
-                    
+                    {{ productHelper.kit() }}      
+                    {% element('snippets/cep') %}
                 </form>   
                 
                 {% if product.additional_message %}
@@ -193,15 +192,16 @@
     </div>
     {{ productHelper.bundle() }}
 </div>
-{% endif %}
+{% endif %} 
 
+<hr class="line-inter">
 {% element 'showcase' { 
     "products": product.related_products,
     "slide" : "on",
     "showcaseTitle": "Produtos relacionados"
 } %}
 
-<div id="ProdBlock" class="product-tabs">
+<div id="ProdBlock" class="row product-tabs">
     
     <div id="ProdAbas" class="abasProduto tab-panel">
         <ul class="clearfix">
@@ -249,7 +249,7 @@
     </div>
     
     <div data-app="product.payment-methods" id="formasPagto" class="prodBox"></div>
-   
+
 </div>
 
 

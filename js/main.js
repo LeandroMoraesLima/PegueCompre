@@ -282,17 +282,17 @@ var theme = {
             ],
             responsive:{
                 0:{
-                    items:2,
+                    items:3,
                     loop: this.total > 2,
                     mouseDrag: this.total > 2
                 },
                 600:{
-                    items:3,
+                    items:4,
                     loop: this.total > 3,
                     mouseDrag: this.total > 3
                 },
                 1000:{
-                    items:4,
+                    items:5,
                     mouseDrag: this.total > 4
                 }
             }
@@ -315,7 +315,7 @@ var theme = {
                     items:3
                 },
                 1000:{
-                    items:5
+                    items:6
                 }
             }
         });
@@ -606,4 +606,31 @@ function process(quant){
     }else{
     document.getElementById("quant").value = value;
     }
+}
+function contagem_regressiva(data){
+    var target_date = new Date("january 15, 2018").getTime();
+    var dias, horas, minutos, segundos;
+    var regressiva = document.getElementById("regressiva");
+
+    setInterval(function () {
+
+        var current_date = new Date().getTime();
+        var segundos_f = (target_date - current_date) / 1000;
+
+        dias = parseInt(segundos_f / 86400);
+        segundos_f = segundos_f % 86400;
+        
+        horas = parseInt(segundos_f / 3600);
+        segundos_f = segundos_f % 3600;
+        
+        minutos = parseInt(segundos_f / 60);
+        segundos = parseInt(segundos_f % 60);
+
+        document.getElementById('dia').innerHTML = dias;
+        document.getElementById('hora').innerHTML = horas;
+        document.getElementById('minuto').innerHTML = minutos;
+        document.getElementById('segundo').innerHTML = segundos;
+      
+
+    }, 1000);
 }

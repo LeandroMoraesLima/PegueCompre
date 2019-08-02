@@ -1,0 +1,30 @@
+<script>
+    $(document).ready(function(){
+        var productId = {{ product.id }}
+        $.ajax({
+            method: "GET",
+            url: "/web_api/products/"+productId
+        }).done(function( response, textStatus, jqXHR ) {
+            console.log('leandro' + payment);
+            var payment = response.Product.payment_option_details
+            var avista, ou, prazo;
+            $( payment ).each(function( index ) {
+                console.log(this);
+                if(this.plots ==1){
+                    avista = `
+                    <h2 clas="PrecoPrincipal" > R$ ${this.value}</h2>
+                    <span> à vista no ${ this.display_name }</span>`;
+                }else{
+                if(index > 1)
+                    ou = `<br><span> ou </span>`;
+                    prazo = `
+                    em <span>${ this.plots } vezes de R$ ${ this.value }
+                    no ${ this.display_name }</span>`;
+                }
+                $(".product-price"+productId).append(avista, ou ,prazo);
+            });
+        }).fail(function( jqXHR, status, errorThrown ){
+        var response = $.parseJSON( jqXHR.responseText );
+    });
+});
+</script>

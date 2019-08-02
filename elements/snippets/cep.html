@@ -1,0 +1,60 @@
+
+<div class="cep">
+	<h6>Consulte o frete e o prazo de entrega estimados para sua regia. Dúvidas? <a href="">Saiba mais</a></h6>
+	<div class="campo-cep">
+		<i class="fas fa-truck"></i>
+		<p>Informe seu CEP</p>
+		<div id="cepbox" class="cepbox">
+			<label for="cep1">CEP:</label>
+			<input data-app="product.zip1" name="cep1" type="tel" class="text" id="cep1" value="" size="5" maxlength="5" onkeypress="ChecarTAB();" onkeyup="Mostra(this, 5); mascara(this,numeros,event);" onfocus="PararTAB(this);"> 
+		    <input data-app="product.zip2" name="cep2" type="tel" class="text" id="cep2" value="" size="3" maxlength="3" onkeyup="mascara(this,numeros,event);">
+		    <a class="botao-commerce botao-simular-frete" href="javascript:void(0);" id="shippingSimulatorButton" data-app="product.shipping-calculate" data-url="/mvc/store/product/shipping/?nocache=5d3f4b2ead073&amp;loja=682325&amp;simular=ok&amp;cep1=%s&amp;cep2=%s&amp;quantidade=%s&amp;variacao=%s&amp;id_produto=4833&amp;use_api=&amp;additional_information=" data-title="Smart TV QLED 65&quot; UHD 4K Samsung 65Q6FN com Modo Ambiente, Pontos Quânticos, HDR1000, Controle Remoto Único, Comando de Voz, HDMI e USB - 2018" data-modal-width="80%">Calcular frete</a>
+		    <a class="esqueci-cep" href="">Não sei meu CEP</a>
+		</div>
+	</div>
+</div>
+
+<hr class="line-inter">
+
+	<p>Formas de pagamento</p>
+<div class="pagamento">
+	<div class="product-payment">
+		<div class="product-price{{ product.id }}"></div>
+		{% element 'snippets/payment' {
+			"product": product
+		} %}
+	</div>
+	<div class="box-seal">
+        <h3 class="title uppercase">Compra segura</h3>
+        <div class="overflow space-low">
+            <ul class="list-seal">
+                {% if seals.ebit %}
+                <li class="seal-ebit">{{ seals.ebit }}</li>
+                {% endif %}
+                <li>
+                    <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank">
+                        <img src="{{ asset('img/google.png') }}" alt="Google Safe" />
+                    </a>
+                </li>
+                {% if seals.hackersafe %}
+                <li>{{ seals.hackersafe }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+   <!-- <div class="box-tel">
+    <div class="text">Pagamento à prazo</div>
+</div>
+<ul class="payment-list flex f-wrap">
+    {% for payment in paymentMethods.credit %}
+        <li class="payment-form">
+            <img src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}">
+        </li>
+    {% endfor %} 
+</ul>
+
+ -->

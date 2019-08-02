@@ -25,7 +25,7 @@
     <div class="product-image">
         {% if product.images %}
         <a class="box-image" href="{{ product.link }}">
-            <img src="{{ asset('img/image.png') }}" data-src="{{ product.images[0].large }}" class="{{ slide ? 'owl-lazy' : 'lazyload t-opacity' }}" alt="{{ product.name }}" title="{{ product.name }}">
+            <img src="{{ product.images[0].large }}" data-src="{{ product.images[0].large }}" class="{{ slide ? 'owl-lazy' : 'lazyload t-opacity' }}" alt="{{ product.name }}" title="{{ product.name }}">
             <div class="load-css">
                 <div class="icon"></div>
             </div>

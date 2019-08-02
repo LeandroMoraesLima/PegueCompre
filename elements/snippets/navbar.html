@@ -1,11 +1,11 @@
-<nav class="nav">
+ <nav class="nav">
     <div class="container-fluid">
-        <ul class="list level-primary flex">
+        <ul class="row list level-primary flex">
 
             {% if categories|length >= 7 %}
             <li class="{{ categories|length > 4 ? 'flex-grow' : 'padding' }} subs no-relative">
 
-                <a class="t-color" href="#">Todos os departamentos<i aria-hidden class="icon icon-down-mini"></i></a>
+                <a class="t-color" href="#"><i class="fas fa-bars"></i>Todos os departamentos</a>
 
                 <div class="box-sub flex" data-lenght="{{ categories|length - 7 }}">
 
@@ -26,10 +26,12 @@
             </li>
 
             {% for category in categories %}
-                {% if loop.index <= 6 %}
+                {% if loop.index <= 7 %}
 
                 <li class="{{ categories|length > 4 ? 'flex-grow' : 'padding' }} {{ category.children ? 'subs'}} {{category.children|length > 4 ? 'no-relative'}}" data-category-id="{{ category.id }}">
-                    <a class="t-color" href="{{ category.link }}">{{ category.name }}{{ category.children ? '<i aria-hidden class="icon icon-down-mini"></i>' : ''}}</a>
+                    <a class="t-color" href="{{ category.link }}">
+                        <div class="iconv"  style="background-image: url({{ category.images[0] }});"></div>
+                        {{ category.name }}{{ category.children ? '' : ''}}</a>
                     {% if category.children %}
                     {% set level2 = category.children %}
                     <div class="box-sub flex" data-lenght="{{level2|length}}">

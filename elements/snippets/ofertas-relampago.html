@@ -1,0 +1,53 @@
+<div class="relampago">
+    <h2>
+        Ofertas Relâmpago
+    </h2>
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+		{% for key,category in categories %}
+            {% if loop.index <= 7 %}
+	        <li class="nav-item">
+	        	{% if key == 0 %}
+		   			<a class="nav-link active" id="home-tab" data-toggle="tab" href="#cat-{{ category.id }}" role="tab" aria-controls="home" aria-selected="true">
+                    <div class="icon-oferta"  style="background-image: url({{ category.images[0] }});"></div>
+                    {{ category.name }}</a>
+		   		{% else %}
+		   			<a class="nav-link" id="home-tab" data-toggle="tab" href="#cat-{{ category.id }}" role="tab" aria-controls="home" aria-selected="true">
+                    <div class="icon-oferta"  style="background-image: url({{ category.images[0] }});"></div>
+                    {{ category.name }}</a>
+		   		{% endif %}                
+                                        
+	        </li>
+	    	{% endif %}
+        {% endfor %}
+   	</ul>
+   	<div class="tab-content" id="myTabContent">
+   		{% for key,category in categories %}
+            {% if loop.index <= 7 %}	        
+	    		{% if key == 0 %}
+		   			<div class="tab-pane fade show active" id="cat-{{ category.id }}" role="tabpanel" aria-labelledby="home-tab">
+		   		{% else %}
+		   			<div class="tab-pane fade" id="cat-{{ category.id }}" role="tabpanel" aria-labelledby="home-tab">
+		   		{% endif %}
+		   			
+		   			{% set aba1 = Products({
+	                    'filter': 'promotion',
+	                    'limit': 10,
+	                    'categories': [ category.id ]
+	                    })
+	                %}
+
+	                
+	                {% element 'showcase' { 
+	                    "products": aba1,
+	                    "slide" : settings.product_carousel,        
+	                    "showcaseTitle": "Recomendados para você" ,
+	                    "sType": "relamp",
+	                } %} 
+
+		   			</div>
+
+		   		{% endif %}
+        {% endfor %}
+   	</div>
+</div> 

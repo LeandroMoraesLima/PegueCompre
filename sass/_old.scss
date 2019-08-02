@@ -664,8 +664,7 @@ p,ul,li{
 
 input.text,select.text{
     border: 1px solid #909090;
-    height: 40px;
-    padding: 19px;
+    padding: 4px 10px 5px;
     color: var(--text-color);
     border-right: none;
     border-left: none;
@@ -1750,6 +1749,7 @@ header .info-site .atendimento{
 
     nav.nav .level-primary > li{
         font-size: .813rem;
+        padding: 10px 0 18px;
     }
 
     nav.nav .level-primary > li > a{
@@ -1760,6 +1760,7 @@ header .info-site .atendimento{
         text-align: center;
         text-transform: uppercase;
         font-weight: 600;
+        line-height: 0;
     }
 
     nav.nav .level-primary > li.padding > a{
@@ -1779,12 +1780,10 @@ header .info-site .atendimento{
 
     nav.nav .box-sub{
         position: absolute;
-        top: 40px;
+        top: 82px;
         left: 15%;
         background: #fff;
-        border-radius: 5px;
         padding: 30px;
-        box-shadow: var(--box-shadow);
         transition: ease-in-out .1s;
         transform-origin: top left;
         transform: scale(.9);
@@ -1847,7 +1846,8 @@ header .info-site .atendimento{
     }
 
     nav.nav .box-sub .level-second > li > a:hover{
-        color: var(--color-primary-hover);
+        color: #0056b3;
+        background-color: none;
     }
 
     nav.nav .box-sub .level-second > li:not(:last-child){
@@ -3228,6 +3228,7 @@ header .info-site .atendimento{
     margin-bottom: 16px;
     font-weight: bold;
     color: #909090;
+    margin-top: 35px;
 }
 
 .product-details{
@@ -3486,6 +3487,7 @@ header .info-site .atendimento{
 }
 #quantidade input.text{
     text-align: center;
+    height: 40px;
 }
 #quantidade #estoque_variacao{
     display: none;
@@ -3571,7 +3573,10 @@ header .info-site .atendimento{
     text-align: left;
     font-weight: 400;
     width: 80%;
-    margin: 28px auto;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media (max-width: 460px){
     #cepbox{
@@ -3595,39 +3600,48 @@ header .info-site .atendimento{
     font-size: .75rem;
     border: 0;
     height: 40px;
-    border-radius: 5px;
     background: #f4f5f6;
 }
 
 #cepbox #cep1.text{
-    padding: 0 20px;
+    text-align: center;
     min-width: 108px;
+    background: none;
+    border: 1px solid #909090;
+    margin-right: 2px;
+    padding-bottom: 5px;
 }
 
 #cepbox #cep2.text{
-    padding: 0 20px;
+    text-align: center;
     min-width: 70px;
+    background: none;
+    border: 1px solid #909090;
+    padding-bottom: 5px;
 }
 
 .botao-commerce.botao-simular-frete{
-    background: var(--text-color);
+    background-color: var(--color-primary) !important;
+    width: 70px;
     height: 40px;
-    border-radius: 5px;
-    padding: 0 18px;
-    line-height: 40px;
+    border-radius: 0px 5px 5px 0px;
+    padding: 0 0px;
+    line-height: 38px;
     display: inline-block;
     color: #fff;
-    margin-left: 10px;
+    margin-left: 2px;
     font-size: 0;
-    margin-left: 10px;
-    width: calc(100% - 215px);
     text-align: center;
+}
+.botao-commerce.botao-simular-frete:hover{
+    background-color: #436205 !important; 
 }
 
 .botao-commerce.botao-simular-frete::before{
-    content: "CALCULAR";
-    font-size: .75rem;
+    content: "OK";
+    font-size: 15px;
     font-weight: 700;
+
 }
 
 @media (max-width: 460px){
@@ -4868,8 +4882,9 @@ h1.color {
     border-radius: 5px;
 }
 .page-content h3{
-    font-size: 1.25rem;
-    margin-bottom: 15px;
+    font-size: 14px;
+    color: var(--color-primary);
+    margin-bottom: 10px;
 }
 .page-content label{
     font-size: .87rem;
@@ -5463,8 +5478,9 @@ footer{
 }
 
 .box-seal{
-    margin-top: 25px;
     min-width: 240px;
+    text-align: right;
+    padding-right: 20px;
 }
 
 .box-seal li {
