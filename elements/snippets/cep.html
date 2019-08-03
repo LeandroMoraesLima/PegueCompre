@@ -16,32 +16,34 @@
 
 <hr class="line-inter">
 
+<div class="area-pagamento">
 	<p>Formas de pagamento</p>
-<div class="pagamento">
-	<div class="product-payment">
-		<div class="product-price{{ product.id }}"></div>
-		{% element 'snippets/payment' {
-			"product": product
-		} %}
+	<div class="pagamento">
+		<div class="product-payment">
+			<div class="product-price{{ product.id }}"></div>
+			{% element 'snippets/payment' {
+				"product": product
+			} %}
+		</div>
+		<div class="box-seal">
+	        <h3 class="title uppercase">Compra segura</h3>
+	        <div class="overflow space-low">
+	            <ul class="list-seal">
+	                {% if seals.ebit %}
+	                <li class="seal-ebit">{{ seals.ebit }}</li>
+	                {% endif %}
+	                <li>
+	                    <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank">
+	                        <img src="{{ asset('img/google.png') }}" alt="Google Safe" />
+	                    </a>
+	                </li>
+	                {% if seals.hackersafe %}
+	                <li>{{ seals.hackersafe }}</li>
+	                {% endif %}
+	            </ul>
+	        </div>
+	    </div>
 	</div>
-	<div class="box-seal">
-        <h3 class="title uppercase">Compra segura</h3>
-        <div class="overflow space-low">
-            <ul class="list-seal">
-                {% if seals.ebit %}
-                <li class="seal-ebit">{{ seals.ebit }}</li>
-                {% endif %}
-                <li>
-                    <a href="https://transparencyreport.google.com/safe-browsing/search?url={{ store.url }}" target="_blank">
-                        <img src="{{ asset('img/google.png') }}" alt="Google Safe" />
-                    </a>
-                </li>
-                {% if seals.hackersafe %}
-                <li>{{ seals.hackersafe }}</li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
 </div>
 
 
