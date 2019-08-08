@@ -1170,7 +1170,7 @@ tray-login .tray-btn-primary:hover{
 }
 
 .header .logo{
-    width: 341px;
+    width: 305px;
 }
 
 .header .logo img{
@@ -1233,7 +1233,7 @@ tray-login .tray-btn-primary:hover{
 }
 
 .header .content-right{
-    width: calc(100% - 341px);
+    width: calc(100% - 800px);
     position: relative;
     padding: 29px 0 15px;
     -webkit-transition: padding ease-in-out .3s;
@@ -1309,7 +1309,7 @@ tray-login .tray-btn-primary:hover{
 }
 
 .header .search{
-    width: calc(100% - 293px);
+    width: 40% !important;
     position: relative;
 }
 
@@ -1368,7 +1368,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .header .box-right{
-    width: 43%;
+    width: 100%;
 }
 
 .header .box-text .title-text{
@@ -1561,7 +1561,7 @@ header .info-site .atendimento{
     }
 
     .header .search{
-        width: 52% !important;
+        width: 40% !important;
     }
 
     .header .box-right{
@@ -2307,7 +2307,7 @@ header .info-site .atendimento{
 
 @media (max-width: 460px){
     .banner-full{
-        margin: 0 5px;
+        /*margin: 0 5px;*/
     }
 }
 

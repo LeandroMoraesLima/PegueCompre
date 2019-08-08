@@ -21,6 +21,9 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
+            <div class="search">
+                {% element 'snippets/search' %}
+            </div>
             <div class="content-right">
 
                 <!-- <div class="bar-links flex">
@@ -76,10 +79,7 @@
 
                 </div> -->
 
-                <div class="action-shop flex justify-between">
-                    <div class="search">
-                        {% element 'snippets/search' %}
-                    </div>
+                <div class="action-shop flex justify-between">                    
                     <div class="box-right flex justify-between align-center">
                         <div class="info-site">
                             {% if Translation('ag_telefone_1') != '' %}
