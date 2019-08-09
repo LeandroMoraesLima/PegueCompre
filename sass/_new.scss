@@ -100,10 +100,25 @@ main.site-main{
 			margin: 30px 0;
 			overflow: auto;
 		}
-		.box-content{
+		.box-line{
 			@media screen and (max-width: 375px){
-				min-width: 100%;
+				display: flex;
+   				flex-direction: column;
+   				border: 1px solid #909090;
 			}
+			.box-content{
+				@media screen and (max-width: 375px){
+					display: flex;
+    				flex-direction: column;
+    				border: none;
+    				margin-bottom: 10px;
+				}
+				.box-icon{
+					@media screen and (max-width: 375px){
+						justify-content: center;
+					} 
+				}
+			} 
 		}
 	}
 }
@@ -214,6 +229,9 @@ main.site-main{
 
 .bannergrand {
 	padding:40px 20px;
+	@media screen and (max-width: 375px){
+		display: none;
+	}
 	img {
 		max-width: 100%;
 	}
@@ -231,39 +249,47 @@ main.site-main{
 			justify-content: center;
 		}
 		.banners {
-			width: 100%;
-			@include flexbox();
 			@media screen and (max-width: 375px){
 				min-width: 90%;
 			}
+		}
+	}
+}
 
-			.banner-grand{
-				flex: 0 0 62%;
-			    max-width: 62%;
-			    padding: 5px 18px;
+.area-banners{
+	@media screen and (max-width: 375px){
+		display: none;
+	}
+	.banners {
+		width: 100%;
+		@include flexbox();		
+
+		.banner-grand{
+			flex: 0 0 62%;
+		    max-width: 62%;
+		    padding: 5px 18px;
+
+			img{
+				max-width: 100%;
+			}
+		}
+		.banner-lateral{
+			flex: 0 0 37%;
+		    max-width: 37%;	
+		    padding: 5px 18px;
+
+			.banners-lateral{
+				max-width: 100%;
 
 				img{
 					max-width: 100%;
 				}
-			}
-			.banner-lateral{
-				flex: 0 0 37%;
-			    max-width: 37%;	
-			    padding: 5px 18px;
-
-				.banners-lateral{
-					max-width: 100%;
-
-					img{
-						max-width: 100%;
-					}
-					&:first-child{
-						margin-bottom: 35px;
-					}
+				&:first-child{
+					margin-bottom: 35px;
 				}
 			}
 		}
-	}
+	}	
 }
 
 .list-products {
@@ -273,7 +299,9 @@ main.site-main{
 		@media screen and (max-width: 375px){
 			display: block;
 		}
-
+		.product-box{
+			
+		}
 		.title-section {
 			text-align: left !important;
 			span {
@@ -495,17 +523,31 @@ main.site-main{
     	height: 340px;
     }
     .owl-stage{
+    	width: 100% !important;
     	@media screen and (max-width: 375px) {
 	    	width: 100% !important;
-	    }
+	    } 
     }
 }
 
 
 .owl-stage {
+
 	.owl-item {
+
 		.item {
+			@media screen and (max-width: 992px){
+				display: flex;
+			    align-items: center;
+			    flex-direction: column;
+			}
+			img{
+				@media screen and (max-width: 992px){
+					width: 80%;
+				}
+			}
 			.product-box {
+
 				.product-image {
 
 				}
@@ -669,9 +711,22 @@ abbr{
     justify-content: center;
     flex-direction: column;
 }
-#foto_a{
+#foto_a a{
 	padding: 0;
     margin: 0;
+    @media screen and (max-width: 375px){
+    	width: 25%;
+    }
+}
+#foto_a {
+	@media screen and (max-width: 375px){
+    	width: 100%;
+    }
+}
+#foto_a img{
+	@media screen and (max-width: 375px){
+    	width: 70%;
+    }
 }
 /*.jcarousel-prev{
 	background-color: #99bb55 !important;
@@ -1270,6 +1325,9 @@ button.filter__button{
 		display: flex;
 	    align-items: end;
 	    padding-left: 15px;
+	    @media screen and (max-width: 375px){
+	    	flex-direction: column;
+	    }
 
 
 	    .product-payment{
@@ -1293,6 +1351,14 @@ button.filter__button{
 			@media screen and (max-width: 992px){
 		    	text-align: left;
 		    }
+		}
+	}
+}
+.person-shop{
+
+	button{
+		@media screen and (max-width: 375px){
+			display: none;
 		}
 	}
 }
@@ -1328,6 +1394,24 @@ button.filter__button{
 
 	.product-details{
 		box-shadow: none;
+	}
+}
+.product-tabs{
+
+	.abasProduto{
+		@media screen and (max-width: 375px){
+			display: flex !important;
+			align-content: center;
+		}
+	}
+	.prodBox{
+
+		table{
+			@media screen and (max-width: 375px){
+				width: 360px !important;
+				text-align: justify !important;
+			} 
+		}
 	}
 }
 .box-alerts{
